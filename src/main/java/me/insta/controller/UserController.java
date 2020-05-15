@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import me.insta.model.User;
+import me.insta.repository.UserRepository;
 
 @Controller
 public class UserController {
@@ -17,6 +18,9 @@ public class UserController {
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
+	
+	@Autowired
+	private UserRepository mUserRepository;
 
 	@GetMapping("/auth/join")
 	public String authJoin() {
@@ -33,7 +37,15 @@ public class UserController {
 	@PostMapping("/auth/joinProc")
 	public String authJoinProc(User user) {
 		
-		return "";
+		String rawPassword = user.getPassword();
+		String encPassword = encoder.encode(rawPassword);
+		
+		log.info(rawPassword);
+		log.info(encPassword);
+		
+		user.setPassword(encPassword);
+		mUserRepository.save(user);
+		
+		return "redirect:/auth/login";
 	}
-	
 }

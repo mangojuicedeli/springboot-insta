@@ -19,7 +19,7 @@
     </div>
     <div class="login__column">
       <div class="login__box">
-        <img src="/images/loginLogo.png" />
+        <img src="C:/Users/Mingu/Documents/workspace-spring-tool-suite-4-4.5.1.RELEASE/spring-boot-insta/src/main/resources/static/images/phoneImage.png" />
         <form action="/auth/joinProc" method="post" class="login__form">
           <input type="email" name="email" placeholder="Email" required>
           <input type="text" name="name" placeholder="Name" required>
