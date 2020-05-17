@@ -9,5 +9,6 @@
 </head>
 <body>
 <h1>TEST HOME PAGE</h1>
+      <img src="phoneImage.png" />
 </body>
 </html>
